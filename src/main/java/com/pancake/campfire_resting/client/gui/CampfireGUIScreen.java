@@ -1,9 +1,9 @@
 package com.pancake.campfire_resting.client.gui;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import com.pancake.campfire_resting.CampfireResting;
 import com.pancake.campfire_resting.Time;
 import com.pancake.campfire_resting.capability.RestingCap;
-import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -36,14 +36,15 @@ public class CampfireGUIScreen extends Screen {
     }
 
     @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
-        this.renderBackground(graphics);
-        this.sunrise.render(graphics, mouseX, mouseY, partialTicks);
-        this.sun.render(graphics, mouseX, mouseY, partialTicks);
-        this.moon.render(graphics, mouseX, mouseY, partialTicks);
-        this.moon_night.render(graphics, mouseX, mouseY, partialTicks);
-        super.render(graphics, mouseX, mouseY, partialTicks);
+    public void render(PoseStack p_96562_, int p_96563_, int p_96564_, float p_96565_) {
+        this.renderBackground(p_96562_);
+        this.sunrise.render(p_96562_, p_96563_, p_96564_, p_96565_);
+        this.sun.render(p_96562_, p_96563_, p_96564_, p_96565_);
+        this.moon.render(p_96562_, p_96563_, p_96564_, p_96565_);
+        this.moon_night.render(p_96562_, p_96563_, p_96564_, p_96565_);
+        super.render(p_96562_, p_96563_, p_96564_, p_96565_);
     }
+
 
     @Override
     protected void init() {

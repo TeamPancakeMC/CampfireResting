@@ -40,7 +40,7 @@ public class CampfireRestingC2SPacket {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(()->{
             ServerPlayer player = context.getSender();
-            Level level = player.level();
+            Level level = player.level;
 
             RestingCap.get(level).ifPresent(restingCap -> {
                 if (level instanceof  ServerLevel serverLevel){
