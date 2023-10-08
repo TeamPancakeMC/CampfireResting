@@ -9,6 +9,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -31,7 +32,7 @@ public class CampfireGUIScreen extends Screen {
     private int select;
 
     public CampfireGUIScreen(BlockPos pos) {
-        super(Component.translatable("gui.campfire_resting.rest"));
+        super(new TranslatableComponent("gui.campfire_resting.rest"));
         this.pos = pos;
     }
 
@@ -52,25 +53,25 @@ public class CampfireGUIScreen extends Screen {
         ImageButton sunrise = new ImageButton(this.width / 2 - 100, this.height / 2 - 30,
                 40, 40,
                 0, 0,
-                40, SUNRISE,40,80 ,(onPress) -> select = 1,Component.translatable("gui.campfire_resting.sunrise"));
+                40, SUNRISE,40,80 ,(onPress) -> select = 1,new TranslatableComponent("gui.campfire_resting.sunrise"));
 
         //sun
         ImageButton sun = new ImageButton(this.width / 2 - 40, this.height / 2 - 30,
                 40, 40,
                 0, 0,
-                40, SUN,40,80 ,(onPress) -> select = 2,Component.translatable("gui.campfire_resting.sun"));
+                40, SUN,40,80 ,(onPress) -> select = 2,new TranslatableComponent("gui.campfire_resting.sun"));
 
         //moon
         ImageButton moon = new ImageButton(this.width / 2 + 20 , this.height / 2 - 30,
                 40, 40,
                 0, 0,
-                40, MOON,40,80 ,(onPress) -> select = 3,Component.translatable("gui.campfire_resting.moon"));
+                40, MOON,40,80 ,(onPress) -> select = 3,new TranslatableComponent("gui.campfire_resting.moon"));
 
         //moon_night
         ImageButton moon_night = new ImageButton(this.width / 2 + 80, this.height / 2 - 30,
                 40, 40,
                 0, 0,
-                40, MOON_NIGHT,40,80 ,(onPress) -> select = 4,Component.translatable("gui.campfire_resting.moon_night"));
+                40, MOON_NIGHT,40,80 ,(onPress) -> select = 4,new TranslatableComponent("gui.campfire_resting.moon_night"));
 
         this.sunrise = this.addRenderableWidget(sunrise);
         this.sun = this.addRenderableWidget(sun);

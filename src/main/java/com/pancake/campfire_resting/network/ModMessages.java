@@ -30,7 +30,7 @@ public class ModMessages {
         net.messageBuilder(CampfireRestingC2SPacket.class,id(), NetworkDirection.PLAY_TO_SERVER)
                 .decoder(CampfireRestingC2SPacket::new)
                 .encoder(CampfireRestingC2SPacket::toBytes)
-                .consumerMainThread(CampfireRestingC2SPacket::handle)
+                .consumer(CampfireRestingC2SPacket::handle)
                 .add();
     }
 

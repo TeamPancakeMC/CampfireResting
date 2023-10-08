@@ -20,7 +20,7 @@ public class ModEvent {
     @SubscribeEvent
     public static void onPlayerInteractRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
         InteractionHand hand = event.getHand();
-        Level level = event.getLevel();
+        Level level = event.getWorld();
         if (hand != InteractionHand.MAIN_HAND) return;
         if (level.getBlockState(event.getPos()).getBlock() != Blocks.CAMPFIRE) return;
         if (level.isClientSide) {
@@ -29,8 +29,8 @@ public class ModEvent {
     }
 
     @SubscribeEvent
-    public static void onTickLevelTick(TickEvent.LevelTickEvent event) {
-        Level level = event.level;
+    public static void onTickWorldTick(TickEvent.WorldTickEvent event) {
+        Level level = event.world;
 
         if(level instanceof ClientLevel clientLevel) {
             LazyOptional<RestingCap> restingCap = RestingCap.get(level);
