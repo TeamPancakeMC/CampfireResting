@@ -1,6 +1,6 @@
 {
-  "gui.campfire_resting.sunrise": "Sunrise",
-  "gui.campfire_resting.sun": "Sun",
-  "gui.campfire_resting.moon": "Moon",
-  "gui.campfire_resting.moon_night": "MoonNight"
+  "gui.campfire_resting.early_morning": "EarlyMorning",
+  "gui.campfire_resting.noon": "Noon",
+  "gui.campfire_resting.dusk": "Dusk",
+  "gui.campfire_resting.midnight": "Midnight"
 }

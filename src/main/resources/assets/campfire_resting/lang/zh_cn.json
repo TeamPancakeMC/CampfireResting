@@ -1,6 +1,6 @@
 {
-  "gui.campfire_resting.sunrise": "日出",
-  "gui.campfire_resting.sun": "白天",
-  "gui.campfire_resting.moon": "晚上",
-  "gui.campfire_resting.moon_night": "夜晚"
+  "gui.campfire_resting.early_morning": "清晨",
+  "gui.campfire_resting.noon": "正午",
+  "gui.campfire_resting.dusk": "黄昏",
+  "gui.campfire_resting.midnight": "午夜"
 }

@@ -1,6 +1,7 @@
 package com.pancake.campfire_resting.event;
 
 import com.pancake.campfire_resting.capability.RestingCap;
+import com.pancake.campfire_resting.CampfireResting;
 import com.pancake.campfire_resting.client.gui.CampfireGUIScreen;
 import com.pancake.campfire_resting.network.ModMessages;
 import com.pancake.campfire_resting.network.message.CampfireRestingC2SPacket;
@@ -8,7 +9,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -21,9 +22,9 @@ public class ModEvent {
     public static void onPlayerInteractRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
         InteractionHand hand = event.getHand();
         Level level = event.getWorld();
+        BlockState blockState = level.getBlockState(event.getPos());
         if (hand != InteractionHand.MAIN_HAND) return;
-        if (level.getBlockState(event.getPos()).getBlock() != Blocks.CAMPFIRE) return;
-        if (level.isClientSide) {
+        if (level.isClientSide && blockState.is(CampfireResting.CAMPFIRE)) {
             Minecraft.getInstance().setScreen(new CampfireGUIScreen(event.getPos()));
         }
     }

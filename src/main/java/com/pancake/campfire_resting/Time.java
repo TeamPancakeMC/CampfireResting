@@ -1,10 +1,10 @@
 package com.pancake.campfire_resting;
 
 public enum Time {
-    DAY(1,1000),
-    MIDNIGHT(2,18000),
-    NIGHT(3,13000),
-    NOON(4,6000),
+    EARLY_MORNING(1,0),
+    NOON(2,6000),
+    DUSK(3,12000),
+    MIDNIGHT(4,18000),
     ;
 
     private final int select;
