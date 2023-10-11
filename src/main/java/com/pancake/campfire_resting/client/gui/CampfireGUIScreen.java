@@ -15,19 +15,19 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 
 public class CampfireGUIScreen extends Screen {
-    private static final ResourceLocation MOON = CampfireResting.asResource("textures/gui/moon.png");
+    private static final ResourceLocation DUSK = CampfireResting.asResource("textures/gui/dusk.png");
 
-    private static final ResourceLocation SUN = CampfireResting.asResource("textures/gui/sun.png");
+    private static final ResourceLocation EARLY_MORNING = CampfireResting.asResource("textures/gui/early_morning.png");
 
-    private static final ResourceLocation SUNRISE = CampfireResting.asResource("textures/gui/sunrise.png");
+    private static final ResourceLocation MIDNIGHT = CampfireResting.asResource("textures/gui/midnight.png");
 
-    private static final ResourceLocation MOON_NIGHT = CampfireResting.asResource("textures/gui/moon_night.png");
+    private static final ResourceLocation NOON = CampfireResting.asResource("textures/gui/noon.png");
     private final BlockPos pos;
 
-    private ImageButton sunrise;
-    private ImageButton sun;
-    private ImageButton moon;
-    private ImageButton moon_night;
+    private ImageButton dusk;
+    private ImageButton early_morning;
+    private ImageButton midnight;
+    private ImageButton noon;
     private int select;
 
     public CampfireGUIScreen(BlockPos pos) {
@@ -38,43 +38,43 @@ public class CampfireGUIScreen extends Screen {
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
         this.renderBackground(graphics);
-        this.sunrise.render(graphics, mouseX, mouseY, partialTicks);
-        this.sun.render(graphics, mouseX, mouseY, partialTicks);
-        this.moon.render(graphics, mouseX, mouseY, partialTicks);
-        this.moon_night.render(graphics, mouseX, mouseY, partialTicks);
+        this.dusk.render(graphics, mouseX, mouseY, partialTicks);
+        this.early_morning.render(graphics, mouseX, mouseY, partialTicks);
+        this.midnight.render(graphics, mouseX, mouseY, partialTicks);
+        this.noon.render(graphics, mouseX, mouseY, partialTicks);
         super.render(graphics, mouseX, mouseY, partialTicks);
     }
 
     @Override
     protected void init() {
         //sunrise
-        ImageButton sunrise = new ImageButton(this.width / 2 - 100, this.height / 2 - 30,
+        ImageButton early_morning = new ImageButton(this.width / 2 - 100, this.height / 2 - 30,
                 40, 40,
                 0, 0,
-                40, SUNRISE,40,80 ,(onPress) -> select = 1,Component.translatable("gui.campfire_resting.sunrise"));
+                40, EARLY_MORNING,40,80 ,(onPress) -> select = 1,Component.translatable("gui.campfire_resting.early_morningzg"));
 
         //sun
-        ImageButton sun = new ImageButton(this.width / 2 - 40, this.height / 2 - 30,
+        ImageButton noon = new ImageButton(this.width / 2 - 40, this.height / 2 - 30,
                 40, 40,
                 0, 0,
-                40, SUN,40,80 ,(onPress) -> select = 2,Component.translatable("gui.campfire_resting.sun"));
+                40, NOON,40,80 ,(onPress) -> select = 2,Component.translatable("gui.campfire_resting.noon"));
 
         //moon
-        ImageButton moon = new ImageButton(this.width / 2 + 20 , this.height / 2 - 30,
+        ImageButton dusk = new ImageButton(this.width / 2 + 20 , this.height / 2 - 30,
                 40, 40,
                 0, 0,
-                40, MOON,40,80 ,(onPress) -> select = 3,Component.translatable("gui.campfire_resting.moon"));
+                40, DUSK,40,80 ,(onPress) -> select = 3,Component.translatable("gui.campfire_resting.dusk"));
 
         //moon_night
-        ImageButton moon_night = new ImageButton(this.width / 2 + 80, this.height / 2 - 30,
+        ImageButton midnight = new ImageButton(this.width / 2 + 80, this.height / 2 - 30,
                 40, 40,
                 0, 0,
-                40, MOON_NIGHT,40,80 ,(onPress) -> select = 4,Component.translatable("gui.campfire_resting.moon_night"));
+                40, MIDNIGHT,40,80 ,(onPress) -> select = 4,Component.translatable("gui.campfire_resting.midnight"));
 
-        this.sunrise = this.addRenderableWidget(sunrise);
-        this.sun = this.addRenderableWidget(sun);
-        this.moon = this.addRenderableWidget(moon);
-        this.moon_night = this.addRenderableWidget(moon_night);
+        this.dusk = this.addRenderableWidget(dusk);
+        this.early_morning = this.addRenderableWidget(early_morning);
+        this.midnight = this.addRenderableWidget(midnight);
+        this.noon = this.addRenderableWidget(noon);
         super.init();
     }
 
@@ -99,7 +99,7 @@ public class CampfireGUIScreen extends Screen {
 
     public int getSkipTime(Level level, int select) {
         long dayTime = level.getDayTime() % 24000;
-        Time[] times = {Time.DAY, Time.NOON, Time.MIDNIGHT, Time.NIGHT};
+        Time[] times = { Time.EARLY_MORNING, Time.NOON , Time.DUSK,Time.MIDNIGHT};
 
         if (select >= 1 && select <= times.length) {
             Time selectedTime = times[select - 1];
