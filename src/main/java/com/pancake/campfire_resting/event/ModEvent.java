@@ -25,7 +25,7 @@ public class ModEvent {
         InteractionHand hand = event.getHand();
         Level level = event.getLevel();
         BlockState blockState = level.getBlockState(event.getPos());
-        if (hand != InteractionHand.MAIN_HAND) return;
+        if (hand != InteractionHand.MAIN_HAND || ! event.getEntity().isShiftKeyDown()) return;
         if (level.isClientSide && blockState.is(CampfireResting.CAMPFIRE)) {
             Minecraft.getInstance().setScreen(new CampfireGUIScreen(event.getPos()));
         }
