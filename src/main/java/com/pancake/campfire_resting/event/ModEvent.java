@@ -1,12 +1,10 @@
 package com.pancake.campfire_resting.event;
 
-import com.pancake.campfire_resting.capability.RestingCap;
 import com.pancake.campfire_resting.CampfireResting;
-import com.pancake.campfire_resting.client.gui.CampfireGUIScreen;
+import com.pancake.campfire_resting.capability.RestingCap;
 import com.pancake.campfire_resting.network.ModMessages;
 import com.pancake.campfire_resting.network.message.CampfireRestingC2SPacket;
 import com.pancake.campfire_resting.network.message.CampfireRestingS2CPacket;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
