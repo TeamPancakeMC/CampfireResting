@@ -2,7 +2,6 @@ package com.pancake.campfire_resting.init;
 
 import com.pancake.campfire_resting.CampfireResting;
 import com.pancake.campfire_resting.capability.RestingCap;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityManager;
